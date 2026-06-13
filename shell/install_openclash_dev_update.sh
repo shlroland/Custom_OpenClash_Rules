@@ -60,7 +60,7 @@ logo() {
 # 全局变量定义
 # ================================================================
 REPO_API_URL="https://api.github.com/repos/vernesong/OpenClash/contents/dev?ref=package"
-RAW_FILE_PREFIX="https://testingcf.jsdelivr.net/gh/vernesong/OpenClash@refs/heads/package/dev"
+RAW_FILE_PREFIX="https://cdn.jsdelivr.net/gh/vernesong/OpenClash@refs/heads/package/dev"
 
 logo
 echo -e "${INFO} 开始运行..."
@@ -229,13 +229,13 @@ if [ -n "$API_GITHUB_IP" ]; then
     # 检查是否成功获取到数据
     if [ -z "$JSON_OUTPUT" ] || ! echo "$JSON_OUTPUT" | grep -q "\"name\""; then
         echo -e "$WARN IP 访问失败，尝试使用反代访问..."
-        PROXY_API_URL="https://github-proxy.asailor.org/${REPO_API_URL}"
+        PROXY_API_URL="https://v6.gh-proxy.org/${REPO_API_URL}"
         JSON_OUTPUT=$(curl -sL --connect-timeout 10 "$PROXY_API_URL" 2>/dev/null)
     fi
 else
     # 没有获取到 IP，直接使用反代
     echo -e "$INFO 使用反代访问 GitHub API..."
-    PROXY_API_URL="https://github-proxy.asailor.org/${REPO_API_URL}"
+    PROXY_API_URL="https://v6.gh-proxy.org/${REPO_API_URL}"
     JSON_OUTPUT=$(curl -sL --connect-timeout 10 "$PROXY_API_URL" 2>/dev/null)
 fi
 FILE_NAME=$(echo "$JSON_OUTPUT" \
@@ -251,7 +251,7 @@ fi
 echo -e "$INFO 发现最新版本：${G}$FILE_NAME${N}"
 JSDELIVR_URL="$RAW_FILE_PREFIX/$FILE_NAME"
 GITHUB_RAW_URL="https://raw.githubusercontent.com/vernesong/OpenClash/package/dev/$FILE_NAME"
-PROXY_URL="https://github-proxy.asailor.org/${GITHUB_RAW_URL}"
+PROXY_URL="https://v6.gh-proxy.org/${GITHUB_RAW_URL}"
 TEMP_FILE="openclash.$EXT"
 echo
 
@@ -460,7 +460,7 @@ print_step "步骤 6/8: 初始化配置与内核更新"
 echo -e "$INFO 配置更新分支为 Dev，启用 jsdelivr 加速..."
 uci set openclash.config.release_branch=dev
 uci set openclash.config.skip_safe_path_check=1
-uci set openclash.config.github_address_mod='https://testingcf.jsdelivr.net/'
+uci set openclash.config.github_address_mod='https://cdn.jsdelivr.net/'
 uci commit openclash
 echo -e "$OK 基础配置更新完成。"
 
@@ -545,7 +545,7 @@ if [ "$CORE_TYPE" = "Smart" ]; then
       
       DOWNLOAD_SUCCESS=0
       DIRECT_URL="https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/${MODEL_URL_SUFFIX}"
-      MIRROR_URL="https://github-proxy.asailor.org/https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/${MODEL_URL_SUFFIX}"
+      MIRROR_URL="https://v6.gh-proxy.org/https://github.com/vernesong/mihomo/releases/download/LightGBM-Model/${MODEL_URL_SUFFIX}"
       
       # Smart 模型下载（优先级: 反代镜像站 > GitHub IP）
       echo -e "$INFO 开始使用反代镜像站下载 ${MODEL_VERSION} (文件较大，请耐心等待)..."
