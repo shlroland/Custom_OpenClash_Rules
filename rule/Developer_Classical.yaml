@@ -1,0 +1,33 @@
+# Developer tool classical rules maintained for Custom_OpenClash_Rules.
+# Keep broad keyword rules here instead of the domain provider.
+
+payload:
+  # GitHub-adjacent assets that are commonly used by package managers and CLIs.
+  - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,githubapp.com
+  - DOMAIN-SUFFIX,github.io
+  - DOMAIN-SUFFIX,gist.github.com
+
+  # Common package manager endpoints and mirrors.
+  - DOMAIN-SUFFIX,registry.npmjs.org
+  - DOMAIN-SUFFIX,registry.yarnpkg.com
+  - DOMAIN-SUFFIX,registry-1.docker.io
+  - DOMAIN-SUFFIX,auth.docker.io
+  - DOMAIN-SUFFIX,production.cloudflare.docker.com
+  - DOMAIN-SUFFIX,files.pythonhosted.org
+  - DOMAIN-SUFFIX,static.crates.io
+  - DOMAIN-SUFFIX,index.crates.io
+  - DOMAIN-SUFFIX,dl.google.com
+  - DOMAIN-SUFFIX,storage.googleapis.com
+  - DOMAIN-SUFFIX,storage-download.googleapis.com
+
+  # CLI and release download patterns.
+  - DOMAIN-KEYWORD,homebrew
+  - DOMAIN-KEYWORD,brew
+  - DOMAIN-KEYWORD,download.jetbrains
+  - DOMAIN-KEYWORD,terraform
+  - DOMAIN-KEYWORD,kubernetes
+  - DOMAIN-KEYWORD,helm
+  - DOMAIN-KEYWORD,container
+  - DOMAIN-KEYWORD,registry
