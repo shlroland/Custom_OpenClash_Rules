@@ -30,6 +30,30 @@ payload:
   - '+.rubygems.org'
   - '+.packagist.org'
 
+  # OS package managers and official distribution mirrors
+  - '+.debian.org'
+  - '+.deb.debian.org'
+  - '+.security.debian.org'
+  - '+.ubuntu.com'
+  - '+.archive.ubuntu.com'
+  - '+.security.ubuntu.com'
+  - '+.launchpad.net'
+  - '+.fedoraproject.org'
+  - '+.getfedora.org'
+  - '+.centos.org'
+  - '+.rockylinux.org'
+  - '+.almalinux.org'
+  - '+.archlinux.org'
+  - '+.manjaro.org'
+  - '+.alpinelinux.org'
+  - '+.opensuse.org'
+  - '+.kernel.org'
+
+  # Homebrew
+  - '+.brew.sh'
+  - '+.formulae.brew.sh'
+  - '+.homebrew.org'
+
   # Frontend CDNs and playground dependencies
   - '+.unpkg.com'
   - '+.jsdelivr.net'
